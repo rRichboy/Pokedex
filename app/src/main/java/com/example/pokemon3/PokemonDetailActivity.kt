@@ -1,6 +1,5 @@
 package com.example.pokemon3
 
-
 import android.graphics.Color
 import android.graphics.drawable.ClipDrawable
 import android.graphics.drawable.LayerDrawable
@@ -41,7 +40,10 @@ class PokemonDetailActivity : AppCompatActivity() {
     private lateinit var specialAttackProgressBar: ProgressBar
     private lateinit var specialDefenseProgressBar: ProgressBar
     private lateinit var speedProgressBar: ProgressBar
-
+    private lateinit var nextButton: ImageView
+    private lateinit var backButton: ImageView
+    private var currentPokemonId: Int = 1
+    private val maxPokemonId = 25
 
     private val typeColors = mapOf(
         "bug" to "#A7B723",
@@ -88,17 +90,33 @@ class PokemonDetailActivity : AppCompatActivity() {
         specialAttackProgressBar = findViewById(R.id.specialAttackProgressBar)
         specialDefenseProgressBar = findViewById(R.id.specialDefenseProgressBar)
         speedProgressBar = findViewById(R.id.speedProgressBar)
-
-
-        val backButton = findViewById<ImageView>(R.id.backButton)
-        backButton.setOnClickListener {
-            finish()
-        }
+        nextButton = findViewById(R.id.nextButton)
+        backButton = findViewById(R.id.backButton)
 
         val pokemonId = intent.getIntExtra(EXTRA_POKEMON_ID, 0)
         if (pokemonId != 0) {
-            loadPokemonDetail(pokemonId)
+            currentPokemonId = pokemonId
         }
+
+        updateNavigationButtons()
+
+        backButton.setOnClickListener {
+            if (currentPokemonId > 1) {
+                currentPokemonId--
+                loadPokemonDetail(currentPokemonId)
+                updateNavigationButtons()
+            }
+        }
+
+        nextButton.setOnClickListener {
+            if (currentPokemonId < maxPokemonId) {
+                currentPokemonId++
+                loadPokemonDetail(currentPokemonId)
+                updateNavigationButtons()
+            }
+        }
+
+        loadPokemonDetail(currentPokemonId)
     }
 
     private fun loadPokemonDetail(pokemonId: Int) {
@@ -141,23 +159,17 @@ class PokemonDetailActivity : AppCompatActivity() {
             getString(R.string.height_format, pokemonDetail.height / 10.0) // height in m
         pokemonMovesTextView.text = pokemonDetail.abilities.joinToString(", ") { it.ability.name }
 
-
         pokemonDescriptionTextView.text =
             "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger."
 
         val statsMap = pokemonDetail.stats.associateBy { it.stat.name }
 
         val hp = statsMap["hp"]?.base_stat ?: 0
-
         val attack = statsMap["attack"]?.base_stat ?: 0
-
         val defense = statsMap["defense"]?.base_stat ?: 0
-
-
         val specialAttack = statsMap["special-attack"]?.base_stat ?: 0
         val specialDefense = statsMap["special-defense"]?.base_stat ?: 0
         val speed = statsMap["speed"]?.base_stat ?: 0
-
 
         hpTextView.text = getString(R.string.hp_format, hp)
         attackTextView.text = getString(R.string.attack_format, attack)
@@ -183,9 +195,12 @@ class PokemonDetailActivity : AppCompatActivity() {
         progressBar.progressDrawable = progressDrawable
     }
 
-
     companion object {
         const val EXTRA_POKEMON_ID = "extra_pokemon_id"
     }
-}
 
+    private fun updateNavigationButtons() {
+        backButton.visibility = if (currentPokemonId > 1) View.VISIBLE else View.GONE
+        nextButton.visibility = if (currentPokemonId < maxPokemonId) View.VISIBLE else View.GONE
+    }
+}

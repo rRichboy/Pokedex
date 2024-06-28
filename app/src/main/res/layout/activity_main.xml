@@ -1,51 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:background="#FF0000"
     tools:context=".MainActivity">
+
+    <!-- Логотип и название приложения -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"
+        android:background="#FF0000">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/pokeball" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Pokédex"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/searchEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search Pokémon"
+        android:background="@drawable/red_border"
+        android:drawableStart="@drawable/ic_search"
+        android:hint="Search"
         android:inputType="text"
-        android:padding="10dp"
-        android:drawableStart="@drawable/ic_search"/>
+        android:padding="10dp" />
 
-    <RadioGroup
-        android:id="@+id/sortRadioGroup"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/sortByNumberRadioButton"
+        <Button
+            android:id="@+id/sortByNumberButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Number"
-            android:checked="true"/>
+            android:background="@drawable/red_border"
+            android:padding="10dp"
+            android:text="#" />
 
-        <RadioButton
-            android:id="@+id/sortByNameRadioButton"
+        <Button
+            android:id="@+id/sortByNameButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:layout_marginStart="16dp"/>
-    </RadioGroup>
+            android:layout_marginStart="16dp"
+            android:background="@drawable/red_border"
+            android:padding="10dp"
+            android:text="A" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pokemonRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
+
 </LinearLayout>
-
-

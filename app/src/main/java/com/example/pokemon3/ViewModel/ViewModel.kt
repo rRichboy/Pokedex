@@ -49,12 +49,19 @@ class PokemonViewModel : ViewModel() {
         }
     }
 
-
-    fun sortByNumber() {
-        _pokemonList.value = _allPokemonList.sortedBy { it.pokemonId }
+    fun sortByNumberAscending() {
+        _pokemonList.value = _allPokemonList.sortedBy { it.getId() }
     }
 
-    fun sortByName() {
+    fun sortByNumberDescending() {
+        _pokemonList.value = _allPokemonList.sortedByDescending { it.getId() }
+    }
+
+    fun sortByNameAscending() {
         _pokemonList.value = _allPokemonList.sortedBy { it.name }
+    }
+
+    fun sortByNameDescending() {
+        _pokemonList.value = _allPokemonList.sortedByDescending { it.name }
     }
 }

@@ -18,30 +18,37 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!--<ImageView
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_back"
+                android:padding="8dp" />-->
+
             <!-- Контейнер для информации с белым фоном -->
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:elevation="4dp"
-                android:orientation="vertical"
                 android:padding="16dp">
 
                 <ImageView
                     android:id="@+id/backButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_arrow_back"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:padding="16dp"/>
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_back"
+                    android:padding="8dp" />
 
-                <!-- Информация о покемоне -->
                 <TextView
                     android:id="@+id/pokemonNameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
                     android:textColor="#000000"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -50,7 +57,8 @@
                     android:id="@+id/pokemonNumberTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@id/pokemonNameTextView"
+                    android:layout_centerHorizontal="true"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -58,13 +66,24 @@
                     android:id="@+id/pokemonImageView"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_below="@id/pokemonNumberTextView"
+                    android:layout_centerHorizontal="true" />
+
+                <ImageView
+                    android:id="@+id/nextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_forward"
+                    android:padding="8dp" />
 
                 <TextView
                     android:id="@+id/pokemonTypeTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@id/pokemonImageView"
+                    android:layout_centerHorizontal="true"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -72,7 +91,8 @@
                     android:id="@+id/pokemonWeightTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@id/pokemonTypeTextView"
+                    android:layout_centerHorizontal="true"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -80,7 +100,8 @@
                     android:id="@+id/pokemonHeightTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@id/pokemonWeightTextView"
+                    android:layout_centerHorizontal="true"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -88,7 +109,8 @@
                     android:id="@+id/pokemonMovesTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@id/pokemonHeightTextView"
+                    android:layout_centerHorizontal="true"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -96,12 +118,12 @@
                     android:id="@+id/pokemonDescriptionTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@id/pokemonMovesTextView"
+                    android:layout_centerHorizontal="true"
                     android:paddingBottom="16dp"
                     android:textColor="#000000"
                     android:textSize="16sp" />
-
-            </LinearLayout>
+            </RelativeLayout>
 
             <!-- Контейнер для статов с белым фоном -->
             <LinearLayout
@@ -110,7 +132,8 @@
                 android:background="#FFFFFF"
                 android:elevation="4dp"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:layout_marginTop="16dp">
 
                 <!-- Статы покемона -->
                 <TextView
@@ -216,6 +239,7 @@
     </ScrollView>
 
 </RelativeLayout>
+
 
 
 
