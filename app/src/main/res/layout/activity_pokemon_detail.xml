@@ -1,246 +1,292 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pokemonDetailLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PokemonDetailActivity">
 
-    <ScrollView
+    <!-- Pokemon Name and Number -->
+    <TextView
+        android:id="@+id/pokemonNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pokemonNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <!-- Navigation Buttons -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back" />
 
-            <!--<ImageView
-                android:id="@+id/exit"
+        <ImageView
+            android:id="@+id/pokemonImageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp" />
+
+        <ImageView
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_forward" />
+    </LinearLayout>
+
+
+
+    <!-- Pokemon Type -->
+    <TextView
+        android:id="@+id/pokemonTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+
+
+    <!-- Pokemon Info: Weight, Height, Moves -->
+    <LinearLayout
+        android:id="@+id/pokemonInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <!-- Weight -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/weightIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/weight" />
+
+            <TextView
+                android:id="@+id/pokemonWeightTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrow_back"
-                android:padding="8dp" />-->
-
-            <!-- Контейнер для информации с белым фоном -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:padding="16dp">
-
-                <ImageView
-                    android:id="@+id/backButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_arrow_back"
-                    android:padding="8dp" />
-
-                <TextView
-                    android:id="@+id/pokemonNameTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/pokemonNumberTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/pokemonNameTextView"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:id="@+id/pokemonImageView"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_below="@id/pokemonNumberTextView"
-                    android:layout_centerHorizontal="true" />
-
-                <ImageView
-                    android:id="@+id/nextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_arrow_forward"
-                    android:padding="8dp" />
-
-                <TextView
-                    android:id="@+id/pokemonTypeTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/pokemonImageView"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/pokemonWeightTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/pokemonTypeTextView"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/pokemonHeightTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/pokemonWeightTextView"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/pokemonMovesTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/pokemonHeightTextView"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/pokemonDescriptionTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/pokemonMovesTextView"
-                    android:layout_centerHorizontal="true"
-                    android:paddingBottom="16dp"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-            </RelativeLayout>
-
-            <!-- Контейнер для статов с белым фоном -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:layout_marginTop="16dp">
-
-                <!-- Статы покемона -->
-                <TextView
-                    android:id="@+id/hpTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <ProgressBar
-                    android:id="@+id/hpProgressBar"
-                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="250"
-                    android:progress="0"
-                    android:progressDrawable="@drawable/progress_bar" />
-
-                <TextView
-                    android:id="@+id/attackTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <ProgressBar
-                    android:id="@+id/attackProgressBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="250"
-                    android:progress="0"
-                    android:progressDrawable="@drawable/progress_bar" />
-
-                <TextView
-                    android:id="@+id/defenseTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <ProgressBar
-                    android:id="@+id/defenseProgressBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="250"
-                    android:progress="0"
-                    android:progressDrawable="@drawable/progress_bar" />
-
-                <TextView
-                    android:id="@+id/specialAttackTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <ProgressBar
-                    android:id="@+id/specialAttackProgressBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="250"
-                    android:progress="0"
-                    android:progressDrawable="@drawable/progress_bar" />
-
-                <TextView
-                    android:id="@+id/specialDefenseTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <ProgressBar
-                    android:id="@+id/specialDefenseProgressBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="250"
-                    android:progress="0"
-                    android:progressDrawable="@drawable/progress_bar" />
-
-                <TextView
-                    android:id="@+id/speedTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <ProgressBar
-                    android:id="@+id/speedProgressBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="250"
-                    android:progress="0"
-                    android:progressDrawable="@drawable/progress_bar" />
-
-            </LinearLayout>
-
+                android:layout_marginStart="4dp"
+                android:textColor="#000000"
+                android:textSize="16sp" />
         </LinearLayout>
 
+        <!-- Vertical Divider Line -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000" />
+
+        <!-- Height -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/heightIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/straighten" />
+
+            <TextView
+                android:id="@+id/pokemonHeightTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Vertical Divider Line -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000" />
+
+        <!-- Moves -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pokemonMovesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <!-- Description -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/pokemonDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="16sp" />
     </ScrollView>
 
-</RelativeLayout>
 
 
+    <!-- Stats -->
+    <LinearLayout
+        android:id="@+id/statsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- Example TextView and ProgressBar (replace with actual stats) -->
+        <TextView
+            android:id="@+id/hpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HP"
+            android:textColor="#000000"
+            android:textSize="16sp" />
 
+        <ProgressBar
+            android:id="@+id/hpProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="250"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar" />
 
+        <!-- Example TextView and ProgressBar (replace with actual stats) -->
+        <TextView
+            android:id="@+id/attackTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attack"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/attackProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="250"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar" />
+
+        <!-- Example TextView and ProgressBar (replace with actual stats) -->
+        <TextView
+            android:id="@+id/defenseTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Defense"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/defenseProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="250"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar" />
+
+        <!-- Example TextView and ProgressBar (replace with actual stats) -->
+        <TextView
+            android:id="@+id/specialAttackTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Special Attack"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/specialAttackProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="250"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar" />
+
+        <!-- Example TextView and ProgressBar (replace with actual stats) -->
+        <TextView
+            android:id="@+id/specialDefenseTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:text="Special Defense" />
+
+        <ProgressBar
+            android:id="@+id/specialDefenseProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="250"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar" />
+
+        <!-- Example TextView and ProgressBar (replace with actual stats) -->
+        <TextView
+            android:id="@+id/speedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Speed"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/speedProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="250"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar" />
+    </LinearLayout>
+
+</LinearLayout>

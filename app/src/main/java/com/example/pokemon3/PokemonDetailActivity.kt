@@ -98,6 +98,7 @@ class PokemonDetailActivity : AppCompatActivity() {
             currentPokemonId = pokemonId
         }
 
+
         updateNavigationButtons()
 
         backButton.setOnClickListener {
