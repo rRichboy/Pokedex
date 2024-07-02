@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pokemon3.Model.Pokemon
 import com.example.pokemon3.R
 import com.squareup.picasso.Picasso
@@ -43,7 +44,8 @@ class PokemonAdapter(private val onClick: (Pokemon) -> Unit) :
             nameTextView.text =
                 pokemon.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
             numberTextView.text = "#${pokemon.getId()}"
-            Picasso.get()
+
+            Glide.with(itemView.context)
                 .load(pokemon.imageUrl)
                 .placeholder(R.drawable.picture)
                 .error(R.drawable.picture)
@@ -51,7 +53,8 @@ class PokemonAdapter(private val onClick: (Pokemon) -> Unit) :
         }
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<Pokemon>() {
+
+        class DiffCallback : DiffUtil.ItemCallback<Pokemon>() {
         override fun areItemsTheSame(oldItem: Pokemon, newItem: Pokemon): Boolean =
             oldItem.url == newItem.url
 

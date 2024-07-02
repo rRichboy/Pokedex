@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FF0000"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!-- Логотип и название приложения -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:layout_marginBottom="16dp"
-        android:padding="16dp"
-        android:background="#FF0000">
+        android:background="#FF0000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <ImageView
             android:layout_width="50dp"
@@ -43,6 +41,13 @@
         android:inputType="text"
         android:padding="10dp" />
 
+    <Button
+        android:id="@+id/sortButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort"
+        android:onClick="showSortDialog"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,22 +55,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/sortByNumberButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/red_border"
-            android:padding="10dp"
-            android:text="#" />
 
-        <Button
-            android:id="@+id/sortByNameButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/red_border"
-            android:padding="10dp"
-            android:text="A" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

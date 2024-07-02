@@ -1,10 +1,10 @@
 <resources>
     <string name="weight_format">%.1f kg</string>
     <string name="height_format">%.1f m</string>
-    <string name="hp_format">HP: %d</string>
-    <string name="attack_format">Attack: %d</string>
-    <string name="defense_format">Defense: %d</string>
-    <string name="special_attack_format">Special Attack: %d</string>
-    <string name="special_defense_format">Special Defense: %d</string>
-    <string name="speed_format">Speed: %d</string>
+    <string name="hp_format">%d</string>
+    <string name="attack_format">%d</string>
+    <string name="defense_format">%d</string>
+    <string name="special_attack_format">%d</string>
+    <string name="special_defense_format">%d</string>
+    <string name="speed_format">%d</string>
 </resources>

@@ -20,12 +20,11 @@ class PokemonViewModel : ViewModel() {
     private fun getPokemonList() {
         viewModelScope.launch {
             try {
-                val response = repository.getPokemonList(25, 0)
+                val response = repository.getPokemonList(100, 0)
                 _allPokemonList.clear()
                 _allPokemonList.addAll(response.results)
                 _pokemonList.value = _allPokemonList
             } catch (e: Exception) {
-                // Handle error
             }
         }
     }
@@ -53,15 +52,10 @@ class PokemonViewModel : ViewModel() {
         _pokemonList.value = _allPokemonList.sortedBy { it.getId() }
     }
 
-    fun sortByNumberDescending() {
-        _pokemonList.value = _allPokemonList.sortedByDescending { it.getId() }
-    }
 
     fun sortByNameAscending() {
         _pokemonList.value = _allPokemonList.sortedBy { it.name }
     }
 
-    fun sortByNameDescending() {
-        _pokemonList.value = _allPokemonList.sortedByDescending { it.name }
-    }
+
 }
